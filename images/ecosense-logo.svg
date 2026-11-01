@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+<title id="title">EcoSense leaf and wave logo</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8affb4"/><stop offset="1" stop-color="#2bbf79"/></linearGradient></defs>
+<rect width="128" height="128" rx="26" fill="#071612"/>
+<path d="M95 23C58 25 31 42 29 72c-1 17 11 29 27 28 31-2 44-38 39-77Z" fill="url(#g)"/>
+<path d="M24 91c16-20 33-34 58-48M24 105c20-8 38-8 61-1" fill="none" stroke="#d8ffe8" stroke-width="7" stroke-linecap="round"/>
+<path d="M20 115c20-7 43-7 66 0" fill="none" stroke="#59c9ff" stroke-width="5" stroke-linecap="round"/>
+</svg>

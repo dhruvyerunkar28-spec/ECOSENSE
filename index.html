@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="theme-color" content="#03110d"/>
+<meta name="description" content="EcoSense coastal environmental telemetry dashboard for the Vasai-Naigaon-Virar estuary belt."/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ECO-SENSE | Vasai-Naigaon-Virar Coastal Telemetry Grid</title>
+<!-- Google Fonts: Manrope, Inter, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#1d2d28",
+            "surface": "#071612",
+            "surface-bright": "#2d3c37",
+            "on-background": "#d4e7df",
+            "on-tertiary-fixed": "#1e1b13",
+            "primary-container": "#69f2a0",
+            "secondary": "#76d1ff",
+            "on-surface-variant": "#bccabc",
+            "on-secondary-container": "#002e3f",
+            "outline-variant": "#3d4a3f",
+            "on-tertiary-fixed-variant": "#4b463c",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#00210f",
+            "primary-fixed": "#74fca9",
+            "primary-fixed-dim": "#54df8f",
+            "on-primary": "#00391d",
+            "inverse-on-surface": "#24342f",
+            "on-secondary-fixed": "#001e2b",
+            "surface-container-low": "#0f1e1a",
+            "surface-container": "#13231e",
+            "secondary-fixed-dim": "#76d1ff",
+            "background": "#071612",
+            "tertiary-container": "#dfd8ca",
+            "inverse-primary": "#006d3c",
+            "surface-container-lowest": "#03110d",
+            "tertiary-fixed-dim": "#cdc6b8",
+            "secondary-container": "#2d9bc8",
+            "inverse-surface": "#d4e7df",
+            "surface-variant": "#283833",
+            "on-surface": "#d4e7df",
+            "surface-dim": "#071612",
+            "on-error-container": "#ffdad6",
+            "primary": "#d7ffdf",
+            "on-primary-container": "#006d3c",
+            "on-tertiary": "#343027",
+            "error-container": "#93000a",
+            "on-error": "#690005",
+            "on-secondary": "#003548",
+            "surface-tint": "#54df8f",
+            "tertiary-fixed": "#e9e2d4",
+            "surface-container-highest": "#283833",
+            "on-tertiary-container": "#635e53",
+            "outline": "#869488",
+            "on-primary-fixed-variant": "#00522c",
+            "secondary-fixed": "#c2e8ff",
+            "tertiary": "#fcf4e6",
+            "on-secondary-fixed-variant": "#004d67"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Manrope"],
+            "telemetry-lg": ["JetBrains Mono"],
+            "headline-lg": ["Manrope"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Manrope"],
+            "headline-xl": ["Manrope"],
+            "telemetry-sm": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Manrope"],
+            "headline-xl-mobile": ["Manrope"],
+            "telemetry-md": ["JetBrains Mono"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "telemetry-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "telemetry-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "telemetry-md": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .glass-substrate {
+      background: rgba(3, 17, 13, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .glass-raised {
+      background: rgba(6, 26, 20, 0.82);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 12px 32px -4px rgba(3, 17, 13, 0.85), 0 0 16px 0 rgba(105, 242, 160, 0.08);
+    }
+    .glass-dock {
+      background: rgba(3, 17, 13, 0.88);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.20);
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.92); }
+    }
+    .beacon-pulse {
+      animation: subtlePulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+
+<style id="ecosense-responsive">
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { overflow-x: hidden; }
+  img { max-width: 100%; }
+  @media (max-width: 767px) {
+    body { padding-bottom: 6.5rem; }
+    header > div { padding-left: 1rem !important; padding-right: 1rem !important; gap: .5rem; }
+    header .text-telemetry-sm { font-size: 9px; }
+    header .flex.items-center.gap-3 { gap: .4rem; }
+    #discover { min-height: 92svh; padding-top: 6rem; padding-bottom: 2rem; }
+    #discover > div.relative.z-10 { padding-left: 1rem; padding-right: 1rem; }
+    #discover h1 { font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1.08; }
+    main, section:not(#discover) { scroll-margin-top: 5rem; }
+    section:not(#discover) { padding-left: 1rem; padding-right: 1rem; }
+    section .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+    section table { min-width: 650px; }
+    .ecosense-mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: .75rem 1rem 1rem; background: rgba(3,17,13,.97); border-bottom: 1px solid rgba(255,255,255,.12); }
+    .ecosense-mobile-menu.open { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .25rem; }
+    .ecosense-mobile-menu a { padding: .75rem; border-radius: .6rem; }
+    .ecosense-dock { left: .5rem !important; right: .5rem !important; bottom: .5rem !important; transform: none !important; max-width: none !important; justify-content: space-around; gap: .2rem !important; padding: .65rem .35rem !important; }
+    .ecosense-dock a { min-width: 0; flex: 1; }
+    .ecosense-dock a span:last-child { font-size: 9px !important; white-space: nowrap; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #discover h1 { max-width: 90%; }
+  }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid #69f2a0; outline-offset: 3px; }
+</style>
+
+<style id="ecosense-interaction-fixes">
+  #locations .location-card { cursor:pointer; position:relative; transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease; }
+  #locations .location-card:hover { transform:translateY(-3px); box-shadow:0 14px 35px rgba(0,0,0,.24); }
+  #locations .location-card:focus-visible { outline:2px solid #69f2a0; outline-offset:4px; }
+  #reports .advisory-track { display:flex !important; overflow-x:auto; scroll-snap-type:x mandatory; gap:1rem; padding-bottom:1rem; scrollbar-width:thin; }
+  #reports .advisory-track > div { flex:0 0 min(86vw,360px); scroll-snap-align:start; }
+  .eco-dialog-backdrop { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; padding:1rem; background:rgba(0,0,0,.76); backdrop-filter:blur(8px); }
+  .eco-dialog { width:min(100%,560px); max-height:min(85vh,760px); overflow:auto; background:#0f1e1a; color:#d4e7df; border:1px solid rgba(105,242,160,.35); border-radius:18px; padding:1.25rem; box-shadow:0 24px 80px rgba(0,0,0,.55); }
+  .eco-dialog button,.eco-dialog a { cursor:pointer; }
+  .eco-dialog-close { float:right; border:1px solid rgba(255,255,255,.18); border-radius:9px; padding:.4rem .65rem; }
+  .eco-dialog-action { display:inline-flex; align-items:center; justify-content:center; margin-top:1rem; padding:.7rem 1rem; border-radius:9px; background:#69f2a0; color:#03110d; font-weight:700; }
+  @media(max-width:767px){ #reports .advisory-track > div { flex-basis:84vw; } }
+</style>
+
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary-container selection:text-surface-container-lowest min-h-screen relative pb-32">
+<!-- TOP APP BAR (Shared Components JSON Anchor) -->
+<header class="w-full bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 fixed top-0 z-50 shadow-sm transition-all duration-200">
+<div class="w-full px-6 py-3 flex items-center justify-between mx-auto max-w-7xl">
+<!-- Brand Logo / Wordmark -->
+<a class="flex items-center gap-3 group active:scale-95 transition-transform duration-150" href="#discover">
+<img alt="ECO-SENSE Brand Logo" class="w-8 h-8 rounded-md object-contain border border-outline-variant/40 p-0.5 bg-surface-container-low" src="/images/ecosense-logo.svg"/>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-container tracking-tight">ECO-SENSE</span>
+</a>
+<!-- Web Navigation Links (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary-fixed pb-1 font-semibold text-label-md font-label-md transition-colors" href="#discover">Discover</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors text-label-md font-label-md" href="#monitor">Monitor</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors text-label-md font-label-md" href="#locations">Locations</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors text-label-md font-label-md" href="#understand">Understand</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors text-label-md font-label-md" href="#reports">Reports</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors text-label-md font-label-md" href="#about">About</a>
+</nav>
+<button id="mobileMenuToggle" class="md:hidden inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-white" aria-label="Open navigation" aria-expanded="false">
+  <span class="material-symbols-outlined">menu</span>
+</button>
+<nav id="mobileMenu" class="ecosense-mobile-menu md:hidden" aria-label="Mobile navigation">
+  <a href="#discover" class="text-on-surface">Discover</a><a href="#monitor" class="text-on-surface">Monitor</a>
+  <a href="#locations" class="text-on-surface">Locations</a><a href="#understand" class="text-on-surface">Understand</a>
+  <a href="#reports" class="text-on-surface">Reports</a><a href="#about" class="text-on-surface">About</a>
+</nav>
+<!-- Trailing Status Badges & Controls -->
+<div class="flex items-center gap-3">
+<!-- Live sensor grid active indicator -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full glass-substrate border border-primary-container/30">
+<span class="w-2 h-2 rounded-full bg-primary-container beacon-pulse"></span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed tracking-wide uppercase">LIVE API FEED</span>
+</div>
+<!-- Open-Meteo Synced pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/40 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-secondary">sync</span>
+<span class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim" id="apiUpdatedAt">Connecting to Open-Meteo…</span>
+</div>
+<!-- Trailing action icons from JSON -->
+<div class="hidden lg:flex items-center gap-1 pl-2 border-l border-outline-variant/30 text-on-surface-variant">
+<button class="p-1.5 rounded-lg hover:bg-surface-container hover:text-primary-fixed transition-colors" title="Sensors Overview">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container hover:text-primary-fixed transition-colors" title="Telemetry Tuning">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- HERO: "A YEAR ON THE COAST" (DISCOVER SECTION) -->
+<section class="relative w-full min-h-[92vh] pt-24 pb-16 flex flex-col justify-end overflow-hidden" id="discover">
+<!-- Full-bleed Environmental Background Photograph -->
+<div class="absolute inset-0 z-0">
+<img alt="Vasai coastal beach and dew covered grasses in morning mist" class="w-full h-full object-cover object-center transform scale-[1.02] filter brightness-[0.75] contrast-[1.05]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFxROwswXdts0nyi5bVoCX5vUs7MZ6BjmGTzcRSGtdjnmU9TIl4ceIIsTar1QtXWyfkxnNF2lNT_2KaZSdlWHVcfF1n80DBInvt3ptBW8rcIwLUVt4D9Zg8TAJsAEthHpZP-mpfqEFSV-hVTs_a5a3hucSW3FStx_1p9SAcp3OY7yXaHb1Roks7Qw4R_4CC3mstunAyLVOXV1QzVcQtrmN42wsnBVNKcTLlx5lJm0"/>
+<!-- Atmospheric dark gradient vignette for WCAG AA compliance -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-surface-container-lowest/30"></div>
+<div class="absolute inset-0 bg-radial-gradient from-transparent via-surface-container-lowest/40 to-surface-container-lowest/90"></div>
+</div>
+<!-- 12 Tiny Dots Seasonal Progression Gauge (Right Edge) -->
+<div class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center gap-2.5 p-2 rounded-full glass-substrate border border-white/10" title="Seasonal Cycle (Annual Estuary Progression)">
+<div class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(105,242,160,0.9)] ring-2 ring-primary-container/40"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></div>
+<span class="text-telemetry-sm font-telemetry-sm text-outline-variant [writing-mode:vertical-rl] tracking-widest mt-1 opacity-80">PHASE 01</span>
+</div>
+<!-- Hero Content Overlay -->
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full mt-auto">
+<!-- Geo Identity & Breadcrumb -->
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed uppercase tracking-wider">Vasai-Naigaon-Virar Estuary Belt · 19.3919° N, 72.8397° E</span>
+</div>
+<h1 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-tertiary font-bold tracking-tight max-w-3xl leading-tight">
+        A Year on the Coast: Dynamic Estuarine Telemetry
+      </h1>
+<p class="text-body-md md:text-body-lg font-body-lg text-on-surface-variant max-w-2xl mt-2 mb-8 leading-relaxed">
+        Real-time atmospheric clarity, tidal hydraulics, and wetland microclimate intelligence tracked along Maharashtra's northern coastal buffer. Built for researchers, civic guardians, and coastal inhabitants.
+      </p>
+<!-- Interactive 6-Stage Seasonal Progression Switcher -->
+<div class="w-full mb-6">
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-md font-label-md text-tertiary-fixed-dim uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">history_toggle_off</span>
+            Estuary Microclimate Cycle
+          </span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-container">Current Phase: Cold Misty Morning</span>
+</div>
+<!-- 6 Stage Chips Carousel / Row -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+<!-- Stage 1 (Active) -->
+<button class="text-left p-3 rounded-lg glass-raised border-primary-container/40 ring-1 ring-primary-container/30 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-primary-container font-semibold">STAGE 01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_#69f2a0]"></span>
+</div>
+<div class="text-headline-sm font-headline-sm text-white text-[15px] font-bold truncate">Cold misty morning</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Cool, clear mornings</div>
+</button>
+<!-- Stage 2 -->
+<button class="text-left p-3 rounded-lg glass-substrate border-white/10 hover:border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-outline font-semibold">STAGE 02</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-tertiary-fixed text-[15px] truncate">Warming days</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Fresh green breeze</div>
+</button>
+<!-- Stage 3 -->
+<button class="text-left p-3 rounded-lg glass-substrate border-white/10 hover:border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-outline font-semibold">STAGE 03</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-tertiary-fixed text-[15px] truncate">Hottest days</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Dry golden heat haze</div>
+</button>
+<!-- Stage 4 -->
+<button class="text-left p-3 rounded-lg glass-substrate border-white/10 hover:border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-outline font-semibold">STAGE 04</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-tertiary-fixed text-[15px] truncate">Monsoon arrives</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Heavy rain, deep green</div>
+</button>
+<!-- Stage 5 -->
+<button class="text-left p-3 rounded-lg glass-substrate border-white/10 hover:border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-outline font-semibold">STAGE 05</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-tertiary-fixed text-[15px] truncate">Rain easing</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Washed sand &amp; sun</div>
+</button>
+<!-- Stage 6 -->
+<button class="text-left p-3 rounded-lg glass-substrate border-white/10 hover:border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer">
+<div class="flex items-center justify-between mb-1">
+<span class="text-telemetry-sm font-telemetry-sm text-outline font-semibold">STAGE 06</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-tertiary-fixed text-[15px] truncate">Golden clear days</div>
+<div class="text-label-md font-label-md text-on-surface-variant text-[11px] truncate mt-0.5">Warm winter glow</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- LIVE CONDITIONS SECTION (5 FROSTED TELEMETRY CARDS) -->
+<section class="relative max-w-7xl mx-auto px-6 pt-12 pb-16 z-20" id="monitor">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container beacon-pulse"></span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed uppercase tracking-wider">Live Environmental Diagnostics</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary font-bold">
+          Vasai-Virar Sub-Basin Field Telemetry
+        </h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md text-on-surface-variant">Sensor Integrity:</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-primary-container text-telemetry-sm font-telemetry-sm font-semibold">
+          PUBLIC DATA FEED
+        </span>
+</div>
+</div>
+<div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary-container/20 bg-surface-container/70 px-4 py-3 text-sm">
+  <p class="text-on-surface-variant">Live regional estimates from Open-Meteo. These are weather-model/API readings, <strong class="text-white">not measurements from physical IoT sensors</strong>.</p>
+  <button id="refreshTelemetry" type="button" class="rounded-lg border border-primary-container/40 px-3 py-2 text-primary-fixed hover:bg-primary-container/10">↻ Refresh now</button>
+</div>
+<p id="telemetryError" class="hidden mb-4 rounded-lg border border-error/40 bg-error/10 px-4 py-3 text-sm text-error" role="status"></p>
+<!-- 5 Glass Cards Grid with Data Honesty Badges -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- Card 1: Air Quality -->
+<div class="glass-substrate rounded-xl p-5 flex flex-col justify-between hover:border-white/20 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="text-headline-sm font-headline-sm text-white text-[15px]">Air Quality</span>
+<span class="material-symbols-outlined text-[18px] text-primary-container">air</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-telemetry-lg font-telemetry-lg text-white font-bold" id="liveAqi">AQI —</span>
+<span class="text-label-md font-label-md text-secondary font-medium" id="liveAqiLabel">Loading</span>
+</div>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim space-y-0.5 mt-2 pt-2 border-t border-white/10">
+<div>PM2.5: <span class="text-white font-medium" id="livePm25">— µg/m³</span></div>
+<div>PM10: <span class="text-white font-medium" id="livePm10">— µg/m³</span></div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+<!-- Sparkline representation -->
+<svg class="w-16 h-5 stroke-primary-container fill-none" viewbox="0 0 64 20">
+<path d="M0 14 Q 16 18, 32 8 T 64 12" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-telemetry-sm font-telemetry-sm text-on-surface-variant/80 text-[10px] bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30">
+            Open-Meteo estimate
+          </span>
+</div>
+</div>
+<!-- Card 2: Temperature -->
+<div class="glass-substrate rounded-xl p-5 flex flex-col justify-between hover:border-white/20 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="text-headline-sm font-headline-sm text-white text-[15px]">Temperature</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">thermostat</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-telemetry-lg font-telemetry-lg text-white font-bold" id="liveTemperature">—°C</span>
+<span class="text-label-md font-label-md text-tertiary-fixed-dim" id="liveFeelsLike">Feels —°C</span>
+</div>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim space-y-0.5 mt-2 pt-2 border-t border-white/10">
+<div>Feels-like: <span class="text-white font-medium" id="liveFeelsDetail">—°C</span></div>
+<div>Conditions: <span class="text-white font-medium" id="liveWeatherCode">—</span></div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+<svg class="w-16 h-5 stroke-secondary fill-none" viewbox="0 0 64 20">
+<path d="M0 16 Q 16 5, 32 10 T 64 6" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-telemetry-sm font-telemetry-sm text-on-surface-variant/80 text-[10px] bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30">
+            Open-Meteo estimate
+          </span>
+</div>
+</div>
+<!-- Card 3: Relative Humidity -->
+<div class="glass-substrate rounded-xl p-5 flex flex-col justify-between hover:border-white/20 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="text-headline-sm font-headline-sm text-white text-[15px]">Relative Humidity</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">humidity_mid</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-telemetry-lg font-telemetry-lg text-white font-bold" id="liveHumidity">—%</span>
+<span class="text-label-md font-label-md text-secondary-fixed" id="liveHumidityLabel">Relative humidity</span>
+</div>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim space-y-0.5 mt-2 pt-2 border-t border-white/10">
+<div>Dew Point: <span class="text-white font-medium" id="liveDewPoint">—°C</span></div>
+<div>Precipitation: <span class="text-white font-medium" id="livePrecipitation">— mm</span></div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+<svg class="w-16 h-5 stroke-secondary fill-none" viewbox="0 0 64 20">
+<path d="M0 8 Q 20 18, 40 12 T 64 4" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-telemetry-sm font-telemetry-sm text-on-surface-variant/80 text-[10px] bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30">
+            Open-Meteo estimate
+          </span>
+</div>
+</div>
+<!-- Card 4: Surface Wind & Swell -->
+<div class="glass-substrate rounded-xl p-5 flex flex-col justify-between hover:border-white/20 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="text-headline-sm font-headline-sm text-white text-[15px]">Surface Wind</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">cyclone</span>
+</div>
+<div class="flex items-baseline gap-1 mb-1">
+<span class="text-telemetry-lg font-telemetry-lg text-white font-bold" id="liveWind">—</span>
+<span class="text-label-md font-label-md text-tertiary-fixed" id="liveWindDirection">km/h</span>
+</div>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim space-y-0.5 mt-2 pt-2 border-t border-white/10">
+<div>Wind gusts: <span class="text-white font-medium" id="liveGusts">— km/h</span></div>
+<div>Wind direction: <span class="text-white font-medium" id="liveWindCompass">—</span></div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+<svg class="w-16 h-5 stroke-primary-container fill-none" viewbox="0 0 64 20">
+<path d="M0 10 Q 16 3, 32 15 T 64 9" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-telemetry-sm font-telemetry-sm text-on-surface-variant/80 text-[10px] bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30">
+            Open-Meteo estimate
+          </span>
+</div>
+</div>
+<!-- Card 5: Coastal Water Quality -->
+<div class="glass-raised rounded-xl p-5 flex flex-col justify-between border-secondary/40 ring-1 ring-secondary/20">
+<div>
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="text-headline-sm font-headline-sm text-white text-[15px]">Estuary Water Quality</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">water_ec</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-telemetry-lg font-telemetry-lg text-secondary font-bold">pH 7.8</span>
+<span class="text-label-md font-label-md text-primary-fixed">Stable</span>
+</div>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim space-y-0.5 mt-2 pt-2 border-t border-white/10">
+<div>Turbidity: <span class="text-white font-medium">3.4 NTU</span></div>
+<div>Dissolved O₂: <span class="text-white font-medium">6.1 mg/L</span></div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+<svg class="w-16 h-5 stroke-secondary fill-none" viewbox="0 0 64 20">
+<path d="M0 12 Q 24 16, 40 8 T 64 10" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<span class="text-telemetry-sm font-telemetry-sm text-secondary font-semibold text-[10px] bg-surface-container-high px-1.5 py-0.5 rounded border border-secondary/40">
+            Prototype sensor
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- SENSOR LOCATIONS SECTION (3 PHOTOGRAPHIC CARDS) -->
+<section class="relative max-w-7xl mx-auto px-6 py-12 z-20" id="locations">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">share_location</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed uppercase tracking-wider">Active Monitoring Transponders</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary font-bold">
+          Shoreline &amp; Mangrove Sensor Coordinates
+        </h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-md">
+        Field stations reporting sub-hourly environmental packets along the Vasai creek and Arnala coastal littoral zones.
+      </p>
+</div>
+<!-- 3 Large Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Location Card 1: Rangaon Beach, Vasai -->
+<div class="rounded-xl overflow-hidden glass-substrate flex flex-col group hover:border-primary-container/40 transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img alt="Rangaon Beach Vasai with fishing boats resting on sand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6FTMZViKw9np5BY3schumt_sHk_6t-ZST1r3Wmm3x3fOnmK1SnOdFfRv5lYOw94A07w0V6XU1pvxuZxn2U9O5OQu1DA-ZUgAVMPRE8ZhBep__n6i8UYqZ2Mqi2Rz-YKbyJPokKWrZPmEDJwRtLtyU-RMFbMPutenJi9GxRsNC8fFb3qfAkvUuyKP9Yzy9RXK5u03DLv2uQcbNOYxbA8ZkcKSjta_lzbdQ65HIZHo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full glass-substrate text-telemetry-sm font-telemetry-sm text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              NODE-RN-01
+            </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+<span class="text-headline-sm font-headline-sm font-bold">Rangaon Beach, Vasai</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-container bg-surface-container-lowest/80 px-2 py-0.5 rounded">Tidal: Ebbing</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Air Quality</div>
+<div class="text-telemetry-md font-telemetry-md text-primary-fixed font-bold">AQI 54 (Good)</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Temperature</div>
+<div class="text-telemetry-md font-telemetry-md text-white font-bold">27.8°C</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            Intertidal sands bordered by suru pine groves and traditional wooden fishing dhows. Continuous salinity probe in the surf zone.
+          </p>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim">
+<span>Lat: 19.3622° N</span>
+<span>Elevation: 2.1m MSL</span>
+</div>
+</div>
+</div>
+<!-- Location Card 2: Naigaon Coastal Estuary Zone -->
+<div class="rounded-xl overflow-hidden glass-substrate flex flex-col group hover:border-primary-container/40 transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dense mangrove creek estuary at Naigaon Maharashtra with brackish tidal channels winding through lush Rhizophora trees and wetland vegetation under soft diffused sunlight. Digital environmental telemetry style, deep emerald green tones, dark water surface with slight reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebr8D0Wch__2ygfEA7R0SjxNMc4Jhu0LfgjNOOBmjoKFf1fmdURuFg-AUeL2HAFTpvNmPAG6ICt1ExVZXu8S__Yp6deePRIMFS9qzS_5UFUbEcK4i46sUarN7vErmYYbv4Qk3AQrIhyupcnRoDv_fceY6Zw61ECEh4o_Lz8JLWOMxYp_BscjRxbuH7jZR4p-W-NXMwFDH73oIYSpOL-oSwSYXbsM1bM__tqLbOZQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full glass-substrate text-telemetry-sm font-telemetry-sm text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              NODE-NG-04
+            </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+<span class="text-headline-sm font-headline-sm font-bold">Naigaon Estuary Zone</span>
+<span class="text-telemetry-sm font-telemetry-sm text-secondary bg-surface-container-lowest/80 px-2 py-0.5 rounded">Mangrove Creek</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Air Quality</div>
+<div class="text-telemetry-md font-telemetry-md text-tertiary font-bold">AQI 68 (Mod)</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Temperature</div>
+<div class="text-telemetry-md font-telemetry-md text-white font-bold">29.1°C</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            Brackish mudflats and creek mouth under railway viaduct influence. Real-time turbidity and biological oxygen demand sensor active.
+          </p>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim">
+<span>Lat: 19.3498° N</span>
+<span>Salinity: 24.2 PSU</span>
+</div>
+</div>
+</div>
+<!-- Location Card 3: Virar West Arnala Coastal Belt -->
+<div class="rounded-xl overflow-hidden glass-substrate flex flex-col group hover:border-primary-container/40 transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Expansive open sea coastal belt at Arnala Virar West with foaming ocean waves reaching the flat wet sandy beach and distant historical sea fort visible through maritime sea spray. High contrast nocturnal dusk aesthetic with atmospheric emerald and dark slate blue hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFfrpfhKELdDkNNj50cBnjZKahrv_MwKeCKHzbNRkg4tq7iJP-Eal-ggIF6Ii3DEigfL7wkCXxqfaBUsei5uv16WPpQo2Gb9B9pI3i0dNp7FsItjXVnSbTUZxdMgaxI-96JpE7VPoXzJgjix9tHrfL3aiSraCmP9RhMjBs-fioMmYyzCyxufoaChMZgCQygPYjQS9pfIyQS1uJOSATmZD0Xa4fGewd-TBAmSuWsMA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full glass-substrate text-telemetry-sm font-telemetry-sm text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              NODE-AR-09
+            </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+<span class="text-headline-sm font-headline-sm font-bold">Arnala Coastal Belt</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed bg-surface-container-lowest/80 px-2 py-0.5 rounded">Open Sea Sensor</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Air Quality</div>
+<div class="text-telemetry-md font-telemetry-md text-primary-fixed font-bold">AQI 59 (Moderate)</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-white/5">
+<div class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Temperature</div>
+<div class="text-telemetry-md font-telemetry-md text-white font-bold">28.0°C</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            Maritime acoustic node and optical water clarity monitor deployed adjacent to Arnala Fort ferry jetty and outer sand spit.
+          </p>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim">
+<span>Lat: 19.4511° N</span>
+<span>Current: 0.4 m/s NNW</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RESEARCH & EVIDENCE BENTO GRID (UNDERSTAND SECTION) -->
+<section class="relative max-w-7xl mx-auto px-6 py-12 z-20" id="understand">
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="text-telemetry-sm font-telemetry-sm text-secondary uppercase tracking-wider">Research &amp; Evidence Matrix</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary font-bold">
+        Institutional Calibration &amp; Citizen Science Protocols
+      </h2>
+</div>
+<!-- Asymmetrical Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+<!-- Bento Item 1: MPCB Benchmark -->
+<div class="md:col-span-7 glass-raised rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-primary-fixed text-telemetry-sm font-telemetry-sm">
+              REGULATORY BENCHMARK
+            </span>
+<span class="text-telemetry-sm font-telemetry-sm text-on-surface-variant">Protocol MPCB-WA-2023-V</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-white font-bold mb-3">
+            Maharashtra Pollution Control Board (MPCB) Ground Calibration
+          </h3>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed mb-6">
+            All localized ECO-SENSE optical particulate counters and dissolved electrochemical sensors are cross-referenced weekly with the state ambient monitoring station at Vasai-Virar Municipal Corporation HQ. Sensor drift is modeled using Kalman filters to preserve strict evidentiary integrity.
+          </p>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+<div>
+<div class="text-telemetry-lg font-telemetry-lg text-primary-fixed font-bold">0.96</div>
+<div class="text-label-md font-label-md text-on-surface-variant">R² Correlation</div>
+</div>
+<div>
+<div class="text-telemetry-lg font-telemetry-lg text-white font-bold">±3.2%</div>
+<div class="text-label-md font-label-md text-on-surface-variant">Variance Bound</div>
+</div>
+<div>
+<div class="text-telemetry-lg font-telemetry-lg text-secondary font-bold">Weekly</div>
+<div class="text-label-md font-label-md text-on-surface-variant">Sync Cycle</div>
+</div>
+</div>
+</div>
+<!-- Bento Item 2: Citizen Science by Vasai Students -->
+<div class="md:col-span-5 glass-substrate rounded-2xl p-6 md:p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-secondary text-telemetry-sm font-telemetry-sm">
+              ACADEMIC CITIZEN LOGS
+            </span>
+<span class="material-symbols-outlined text-secondary text-[20px]">school</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-bold mb-2">
+            Vasai College Field Sampling Guild
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+            Over 140 undergraduate biology and environmental students conducting daily tidal salinity titration, bird counts, and mudflat microplastic sampling along the Papdy and Bhuigaon shorelines.
+          </p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 text-primary-fixed flex items-center justify-center font-bold font-telemetry-md">
+              142
+            </div>
+<div>
+<div class="text-headline-sm font-headline-sm text-[14px] text-white">Student Field Observers</div>
+<div class="text-telemetry-sm font-telemetry-sm text-primary-container">6,420 Verified Records</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Bento Item 3: Estuary Mangrove Canopy Bio-Indicators -->
+<div class="md:col-span-4 glass-substrate rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary-fixed text-telemetry-sm font-telemetry-sm mb-3">
+<span class="material-symbols-outlined text-[16px]">park</span>
+<span>MANGROVE BIO-TELEMETRY</span>
+</div>
+<h4 class="text-headline-sm font-headline-sm text-white font-semibold mb-2">Avicennia Marina Density</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            NDVI multispectral satellite tracking shows 3.8% canopy densification in the Naigaon creek buffer over the past 18 months, mitigating monsoon storm surges.
+          </p>
+</div>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim">
+<span>NDVI Index: 0.71</span>
+<span class="text-primary-container">+3.8% YOY</span>
+</div>
+</div>
+<!-- Bento Item 4: Open Estuary Data API & Telemetry Pipeline -->
+<div class="md:col-span-8 glass-substrate rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 text-secondary text-telemetry-sm font-telemetry-sm mb-2">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>REST &amp; MQTT STREAMING</span>
+</div>
+<h4 class="text-headline-sm font-headline-sm text-white font-bold mb-2">Open Coastal Data Gateway for Authorities &amp; Schools</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-xl">
+            Query sub-hourly readings for salinity, air particulate matter, surface water dissolved oxygen, and astronomical tide tables via JSON API endpoints with zero paywall.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+<a class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-primary-container text-surface-container-lowest font-headline-sm text-[13px] font-bold text-center hover:shadow-[0_0_16px_rgba(105,242,160,0.4)] transition-all" href="#reports">
+            Access Sensor API
+          </a>
+<a class="w-full sm:w-auto px-4 py-2.5 rounded-lg glass-substrate border border-white/15 text-white font-headline-sm text-[13px] text-center hover:bg-white/10 transition-colors" href="#understand">
+            Data Schemas
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- LATEST INSIGHTS & TIDAL ADVISORIES (HORIZONTAL CAROUSEL CARDS) -->
+<section class="relative max-w-7xl mx-auto px-6 py-12 z-20" id="reports">
+<div class="flex items-center justify-between mb-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">notifications_active</span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed uppercase tracking-wider">Field Log Dispatch</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary font-bold">
+          Coastal Advisories &amp; Ecological Observations
+        </h2>
+</div>
+<div class="hidden sm:flex items-center gap-2">
+<button class="p-2 rounded-lg glass-substrate hover:bg-surface-container text-on-surface transition-colors" title="Scroll Left">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg glass-substrate hover:bg-surface-container text-on-surface transition-colors" title="Scroll Right">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Observation Card 1 -->
+<div class="glass-substrate rounded-xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
+<div>
+<div class="flex items-center justify-between text-telemetry-sm font-telemetry-sm mb-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary border border-secondary/30">TIDAL ALERT</span>
+<span class="text-on-surface-variant">Today · 05:40 IST</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold mb-2">
+            Spring Tide High Water Level Reached 4.38m at Vasai Creek Mouth
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            Bhuigaon intertidal marsh banks inundated as expected during the new moon cycle. Salinity spikes noted at upstream culverts with zero bank breach detected.
+          </p>
+</div>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm">
+<span class="text-tertiary-fixed-dim">Observed: Vasai Creek Node</span>
+<span class="text-primary-container font-semibold">Normal Recession</span>
+</div>
+</div>
+<!-- Observation Card 2 -->
+<div class="glass-substrate rounded-xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
+<div>
+<div class="flex items-center justify-between text-telemetry-sm font-telemetry-sm mb-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed border border-primary-container/30">BIO-INDICATOR</span>
+<span class="text-on-surface-variant">Yesterday · 17:15 IST</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold mb-2">
+            Arrival of Lesser Flamingos (Phoeniconaias minor) at Naigaon Salt Pans
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            First winter migratory flock of approximately 340 individuals sighted. Algal biomass index in adjacent shallow retention basins optimal for seasonal feeding.
+          </p>
+</div>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm">
+<span class="text-tertiary-fixed-dim">Logged by: College Guild</span>
+<span class="text-primary-fixed font-semibold">Biodiversity +12%</span>
+</div>
+</div>
+<!-- Observation Card 3 -->
+<div class="glass-substrate rounded-xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
+<div>
+<div class="flex items-center justify-between text-telemetry-sm font-telemetry-sm mb-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary-fixed-dim border border-outline-variant/40">AIR CLARITY REPORT</span>
+<span class="text-on-surface-variant">2 Days ago · 08:30 IST</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold mb-2">
+            Nocturnal Sea Fog Dispersion Pattern across Arnala-Virar Farmlands
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+            Radiation fog clearing by 09:15 IST under 14 km/h westerly sea wind. Low particulate entrapment recorded compared to inner Mumbai urban corridors.
+          </p>
+</div>
+<div class="pt-3 border-t border-white/10 flex items-center justify-between text-telemetry-sm font-telemetry-sm">
+<span class="text-tertiary-fixed-dim">Model: Open-Meteo V4</span>
+<span class="text-secondary font-semibold">AQI 52 Stable</span>
+</div>
+</div>
+</div>
+</section>
+<!-- LIVE CONNECTED SENSOR TELEMETRY TABLE -->
+<section class="relative max-w-7xl mx-auto px-6 py-12 z-20">
+<div class="glass-raised rounded-2xl p-6 md:p-8 overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-white font-bold">Telemetry Sensor Transponder Mesh</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Live hardware telemetry health from localized Vasai-Virar littoral units</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container beacon-pulse"></span>
+<span class="text-telemetry-sm font-telemetry-sm text-primary-fixed">6 NODES ONLINE</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10 text-telemetry-sm font-telemetry-sm text-on-surface-variant">
+<th class="py-3 px-4">Station &amp; Coordinate</th>
+<th class="py-3 px-4">Hardware ID</th>
+<th class="py-3 px-4">Battery &amp; Solar</th>
+<th class="py-3 px-4">Cellular Signal</th>
+<th class="py-3 px-4">Sampling Cadence</th>
+<th class="py-3 px-4 text-right">Last Ping</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 text-telemetry-sm font-telemetry-sm">
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="py-3 px-4 text-white font-medium">Rangaon Beach Dune Node</td>
+<td class="py-3 px-4 text-tertiary-fixed-dim">ESP32-RN-01</td>
+<td class="py-3 px-4 text-primary-fixed">94% (Solar 4.2V)</td>
+<td class="py-3 px-4 text-white">-68 dBm (4G LTE)</td>
+<td class="py-3 px-4 text-on-surface-variant">Every 5 mins</td>
+<td class="py-3 px-4 text-right text-primary-container">42s ago</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="py-3 px-4 text-white font-medium">Naigaon Estuary Creek Probe</td>
+<td class="py-3 px-4 text-tertiary-fixed-dim">ESP32-NG-04</td>
+<td class="py-3 px-4 text-primary-fixed">88% (Solar 4.1V)</td>
+<td class="py-3 px-4 text-white">-74 dBm (4G LTE)</td>
+<td class="py-3 px-4 text-on-surface-variant">Every 10 mins</td>
+<td class="py-3 px-4 text-right text-primary-container">1m 12s ago</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="py-3 px-4 text-white font-medium">Arnala Jetty Marine Station</td>
+<td class="py-3 px-4 text-tertiary-fixed-dim">ESP32-AR-09</td>
+<td class="py-3 px-4 text-primary-fixed">98% (Solar 4.2V)</td>
+<td class="py-3 px-4 text-white">-62 dBm (4G LTE)</td>
+<td class="py-3 px-4 text-on-surface-variant">Every 5 mins</td>
+<td class="py-3 px-4 text-right text-primary-container">2m 04s ago</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="py-3 px-4 text-white font-medium">Vasai Fort Creek Entrance</td>
+<td class="py-3 px-4 text-tertiary-fixed-dim">ESP32-VF-02</td>
+<td class="py-3 px-4 text-primary-fixed">91% (Solar 4.1V)</td>
+<td class="py-3 px-4 text-white">-71 dBm (4G LTE)</td>
+<td class="py-3 px-4 text-on-surface-variant">Every 5 mins</td>
+<td class="py-3 px-4 text-right text-primary-container">4m 18s ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- MEET OUR TEAM -->
+<section id="team" class="relative max-w-7xl mx-auto px-6 py-20 z-20">
+
+  <div class="text-center max-w-2xl mx-auto mb-12">
+    <div class="flex items-center justify-center gap-2 mb-3">
+      <span class="material-symbols-outlined text-primary-container">groups</span>
+      <span class="text-telemetry-sm font-telemetry-sm text-primary-fixed uppercase tracking-[0.2em]">
+        The People Behind EcoSense
+      </span>
+    </div>
+
+    <h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-white font-bold mb-4">
+      Meet Our Team
+    </h2>
+
+    <p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+      Meet the people working together to build a cleaner, greener and more sustainable future.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+    <!-- Dhruv -->
+    <div class="team-card glass-substrate rounded-2xl p-6 text-center group">
+      <div class="w-24 h-24 mx-auto mb-5 rounded-full p-1 border border-primary-container/40 bg-primary-container/10 group-hover:shadow-[0_0_25px_rgba(105,242,160,0.2)] transition-all">
+        <div class="w-full h-full rounded-full bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary-fixed text-4xl">code</span>
+        </div>
+      </div>
+      <span class="text-telemetry-sm font-telemetry-sm text-primary-container tracking-widest">01 / DEVELOPMENT</span>
+      <h3 class="text-headline-sm font-headline-sm text-white font-bold mt-3 mb-2">Dhruv Yerunkar</h3>
+      <p class="text-body-sm text-on-surface-variant">Developer</p>
+      <div class="w-10 h-0.5 bg-primary-container/50 mx-auto mt-5 group-hover:w-20 transition-all"></div>
+    </div>
+
+    <!-- Pratik -->
+    <div class="team-card glass-substrate rounded-2xl p-6 text-center group">
+      <div class="w-24 h-24 mx-auto mb-5 rounded-full p-1 border border-primary-container/40 bg-primary-container/10 group-hover:shadow-[0_0_25px_rgba(105,242,160,0.2)] transition-all">
+        <div class="w-full h-full rounded-full bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary-fixed text-4xl">description</span>
+        </div>
+      </div>
+      <span class="text-telemetry-sm font-telemetry-sm text-primary-container tracking-widest">02 / DOCUMENTATION</span>
+      <h3 class="text-headline-sm font-headline-sm text-white font-bold mt-3 mb-2">Pratik Parulekar</h3>
+      <p class="text-body-sm text-on-surface-variant">Documentation</p>
+      <div class="w-10 h-0.5 bg-primary-container/50 mx-auto mt-5 group-hover:w-20 transition-all"></div>
+    </div>
+
+    <!-- Aman -->
+    <div class="team-card glass-substrate rounded-2xl p-6 text-center group">
+      <div class="w-24 h-24 mx-auto mb-5 rounded-full p-1 border border-primary-container/40 bg-primary-container/10 group-hover:shadow-[0_0_25px_rgba(105,242,160,0.2)] transition-all">
+        <div class="w-full h-full rounded-full bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary-fixed text-4xl">travel_explore</span>
+        </div>
+      </div>
+      <span class="text-telemetry-sm font-telemetry-sm text-primary-container tracking-widest">03 / FIELD SURVEY</span>
+      <h3 class="text-headline-sm font-headline-sm text-white font-bold mt-3 mb-2">Aman Kharwar</h3>
+      <p class="text-body-sm text-on-surface-variant">Survey</p>
+      <div class="w-10 h-0.5 bg-primary-container/50 mx-auto mt-5 group-hover:w-20 transition-all"></div>
+    </div>
+
+    <!-- Zeeshan -->
+    <div class="team-card glass-substrate rounded-2xl p-6 text-center group">
+      <div class="w-24 h-24 mx-auto mb-5 rounded-full p-1 border border-primary-container/40 bg-primary-container/10 group-hover:shadow-[0_0_25px_rgba(105,242,160,0.2)] transition-all">
+        <div class="w-full h-full rounded-full bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary-fixed text-4xl">explore</span>
+        </div>
+      </div>
+      <span class="text-telemetry-sm font-telemetry-sm text-primary-container tracking-widest">04 / FIELD SURVEY</span>
+      <h3 class="text-headline-sm font-headline-sm text-white font-bold mt-3 mb-2">Zeeshan Shaikh</h3>
+      <p class="text-body-sm text-on-surface-variant">Survey</p>
+      <div class="w-10 h-0.5 bg-primary-container/50 mx-auto mt-5 group-hover:w-20 transition-all"></div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-12">
+    <p class="text-telemetry-sm font-telemetry-sm text-on-surface-variant tracking-wider">
+      FOUR MINDS · ONE MISSION · A GREENER TOMORROW
+    </p>
+  </div>
+
+</section>
+<!-- END MEET OUR TEAM -->
+
+<!-- FLOATING BOTTOM NAV BAR (Shared Components JSON Floating Dock) -->
+<nav class="ecosense-dock fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 sm:gap-8 max-w-fit px-6 sm:px-8 py-3 rounded-full glass-dock border border-outline-variant/40 shadow-2xl">
+<!-- Item 1: Overview (Active based on landing discovery view) -->
+<a class="flex flex-col items-center justify-center text-primary-fixed relative after:content-[''] after:w-1.5 after:h-1.5 after:bg-primary-container after:rounded-full after:mt-1 after:shadow-[0_0_8px_rgba(105,242,160,0.8)] active:scale-95 transition-transform duration-150" href="#discover">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">satellite_alt</span>
+<span class="text-label-md font-label-md mt-0.5 text-[11px] font-semibold text-white">Overview</span>
+</a>
+<!-- Item 2: Telemetry -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors active:scale-95 duration-150" href="#monitor">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="text-label-md font-label-md mt-0.5 text-[11px]">Telemetry</span>
+</a>
+<!-- Item 3: Estuary Map -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors active:scale-95 duration-150" href="#locations">
+<span class="material-symbols-outlined text-[20px]">water_ec</span>
+<span class="text-label-md font-label-md mt-0.5 text-[11px]">Estuary Map</span>
+</a>
+<!-- Item 4: Alerts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors active:scale-95 duration-150" href="#reports">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="text-label-md font-label-md mt-0.5 text-[11px]">Alerts</span>
+</a>
+<!-- Item 5: Field Logs -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:text-primary-fixed transition-colors active:scale-95 duration-150" href="#understand">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-label-md font-label-md mt-0.5 text-[11px]">Field Logs</span>
+</a>
+</nav>
+<!-- INSTITUTIONAL FOOTER (Shared Components JSON Landing Footer) -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30 mt-16" id="about">
+<div class="w-full max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Coordinates -->
+<div class="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+<div class="flex items-center gap-3">
+<img alt="ECO-SENSE Brand Logo" class="w-6 h-6 rounded-md object-contain p-0.5 bg-surface-container-low" src="/images/ecosense-logo.svg"/>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">ECO-SENSE</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-md">
+          © 2024 ECO-SENSE Environmental Telemetry Network. Vasai-Naigaon-Virar Estuary Belt, Maharashtra.
+        </p>
+<div class="text-telemetry-sm font-telemetry-sm text-tertiary-fixed-dim">
+          Grid Origin: 19.3919° N, 72.8397° E · WGS 84 Datum · Indian Standard Time (UTC+05:30)
+        </div>
+</div>
+<!-- Links from JSON -->
+<div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150" href="https://open-meteo.com" rel="noopener" target="_blank">
+          Open-Meteo Integration
+        </a>
+<a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#understand">
+          Coastal Preservation Hub
+        </a>
+<a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150" href="https://mcmcda.maharashtra.gov.in" rel="noopener" target="_blank">
+          Maharashtra Coastal Zone Authority
+        </a>
+<a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#monitor">
+          Sensor API
+        </a>
+<a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150" href="#about">
+          Terms of Telemetry
+        </a>
+</div>
+</div>
+</footer>
+
+<script>
+(() => {
+  const LAT = 19.3919;
+  const LON = 72.8397;
+  const REFRESH_MS = 10 * 60 * 1000;
+  const byId = (id) => document.getElementById(id);
+  const set = (id, value) => { const el = byId(id); if (el && value !== undefined && value !== null) el.textContent = value; };
+  const compass = (degrees) => {
+    const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+    return dirs[Math.round(Number(degrees) / 22.5) % 16];
+  };
+  const aqiLabel = (aqi) => {
+    if (aqi <= 50) return 'Good';
+    if (aqi <= 100) return 'Moderate';
+    if (aqi <= 150) return 'Unhealthy for sensitive groups';
+    if (aqi <= 200) return 'Unhealthy';
+    if (aqi <= 300) return 'Very unhealthy';
+    return 'Hazardous';
+  };
+  async function refreshTelemetry() {
+    const refresh = byId('refreshTelemetry');
+    const error = byId('telemetryError');
+    if (refresh) { refresh.disabled = true; refresh.textContent = 'Refreshing…'; }
+    if (error) { error.classList.add('hidden'); error.textContent = ''; }
+    try {
+      const weatherUrl = new URL('https://api.open-meteo.com/v1/forecast');
+      weatherUrl.search = new URLSearchParams({
+        latitude: LAT, longitude: LON,
+        current: 'temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m',
+        timezone: 'Asia/Kolkata'
+      });
+      const airUrl = new URL('https://air-quality-api.open-meteo.com/v1/air-quality');
+      airUrl.search = new URLSearchParams({
+        latitude: LAT, longitude: LON,
+        current: 'us_aqi,pm2_5,pm10',
+        timezone: 'Asia/Kolkata'
+      });
+      const [weatherResponse, airResponse] = await Promise.all([fetch(weatherUrl), fetch(airUrl)]);
+      if (!weatherResponse.ok || !airResponse.ok) throw new Error('The environmental data service is temporarily unavailable.');
+      const [weatherJson, airJson] = await Promise.all([weatherResponse.json(), airResponse.json()]);
+      const w = weatherJson.current;
+      const a = airJson.current;
+      if (!w || !a) throw new Error('The data provider did not return current readings.');
+      const aqi = Math.round(a.us_aqi);
+      set('liveAqi', `AQI ${aqi}`);
+      set('liveAqiLabel', aqiLabel(aqi));
+      set('livePm25', `${Number(a.pm2_5).toFixed(1)} µg/m³`);
+      set('livePm10', `${Number(a.pm10).toFixed(1)} µg/m³`);
+      set('liveTemperature', `${Number(w.temperature_2m).toFixed(1)}°C`);
+      set('liveFeelsLike', `Feels ${Number(w.apparent_temperature).toFixed(1)}°C`);
+      set('liveFeelsDetail', `${Number(w.apparent_temperature).toFixed(1)}°C`);
+      set('liveWeatherCode', `Code ${w.weather_code}`);
+      set('liveHumidity', `${Math.round(w.relative_humidity_2m)}%`);
+      set('liveDewPoint', 'Not provided by feed');
+      set('livePrecipitation', `${Number(w.precipitation).toFixed(1)} mm`);
+      set('liveWind', `${Number(w.wind_speed_10m).toFixed(1)}`);
+      set('liveWindDirection', 'km/h');
+      set('liveGusts', `${Number(w.wind_gusts_10m).toFixed(1)} km/h`);
+      set('liveWindCompass', `${compass(w.wind_direction_10m)} (${Math.round(w.wind_direction_10m)}°)`);
+      const stamp = new Date();
+      set('apiUpdatedAt', `Updated ${stamp.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`);
+      const status = document.querySelector('#monitor .flex.flex-col.md\\:flex-row .text-primary-container');
+      if (status) status.textContent = 'OPEN-METEO CONNECTED';
+    } catch (err) {
+      console.error('EcoSense telemetry refresh failed:', err);
+      if (error) { error.textContent = `${err.message} Showing no fabricated live readings. Try refreshing in a moment.`; error.classList.remove('hidden'); }
+      set('apiUpdatedAt', 'Feed unavailable');
+    } finally {
+      if (refresh) { refresh.disabled = false; refresh.textContent = '↻ Refresh now'; }
+    }
+  }
+  byId('refreshTelemetry')?.addEventListener('click', refreshTelemetry);
+  refreshTelemetry();
+  window.setInterval(refreshTelemetry, REFRESH_MS);
+})();
+</script>
+
+<script>
+(() => {
+  const toggle = document.getElementById('mobileMenuToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('span').textContent = open ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.querySelector('span').textContent = 'menu';
+    }));
+  }
+  // Seasonal stage cards respond to selection and update the phase label.
+  const stageButtons = Array.from(document.querySelectorAll('#discover button')).filter(b => /STAGE 0[1-6]/.test(b.textContent));
+  const phaseLabel = Array.from(document.querySelectorAll('#discover span')).find(s => s.textContent.includes('Current Phase:'));
+  stageButtons.forEach((button, index) => button.addEventListener('click', () => {
+    stageButtons.forEach(b => {
+      b.classList.remove('ring-1','ring-primary-container/30','border-primary-container/40');
+      b.classList.add('opacity-80');
+    });
+    button.classList.add('ring-1','ring-primary-container/30','border-primary-container/40');
+    button.classList.remove('opacity-80');
+    const title = button.querySelector('div.text-headline-sm')?.textContent?.trim() || `Stage ${index+1}`;
+    if (phaseLabel) phaseLabel.textContent = `Current Phase: ${title}`;
+  }));
+  // Close mobile menu when the user returns to desktop width.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && menu) {
+      menu.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script id="ecosense-interaction-repair">
+(() => {
+  const $ = (s, root=document) => root.querySelector(s);
+  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  function openDialog(title, body, action) {
+    const old=$('.eco-dialog-backdrop'); if(old) old.remove();
+    const backdrop=document.createElement('div'); backdrop.className='eco-dialog-backdrop';
+    const dialog=document.createElement('div'); dialog.className='eco-dialog'; dialog.setAttribute('role','dialog'); dialog.setAttribute('aria-modal','true');
+    const close=document.createElement('button'); close.className='eco-dialog-close'; close.textContent='Close'; close.addEventListener('click',()=>backdrop.remove());
+    const heading=document.createElement('h2'); heading.className='text-xl font-bold text-primary mb-3'; heading.textContent=title;
+    const content=document.createElement('div'); content.className='text-sm leading-relaxed text-on-surface-variant whitespace-pre-line'; content.textContent=body;
+    dialog.append(close,heading,content);
+    if(action){ const a=document.createElement('a'); a.className='eco-dialog-action'; a.href=action.href; a.target='_blank'; a.rel='noopener'; a.textContent=action.label; dialog.append(a); }
+    backdrop.append(dialog); backdrop.addEventListener('click',e=>{if(e.target===backdrop)backdrop.remove();});
+    document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){backdrop.remove();document.removeEventListener('keydown',esc);}});
+    document.body.append(backdrop); close.focus();
+  }
+  // Every location card opens a useful location profile instead of behaving like a dead decorative tile.
+  const locationCards=$$('#locations .grid.grid-cols-1.md\\:grid-cols-3 > div');
+  locationCards.forEach((card,i)=>{
+    card.classList.add('location-card'); card.setAttribute('role','button'); card.setAttribute('tabindex','0');
+    const title=card.querySelector('.text-headline-sm')?.textContent.trim() || `Monitoring location ${i+1}`;
+    const node=card.textContent.match(/NODE-[A-Z0-9-]+/)?.[0] || `NODE-${i+1}`;
+    const details=card.innerText.replace(/\n{3,}/g,'\n\n').trim();
+    const coords=details.match(/Lat:\s*([0-9.]+)°?\s*N/i);
+    const lon=details.match(/Lon(?:gitude)?:\s*([0-9.]+)°?\s*E/i);
+    const maps=coords ? `https://www.google.com/maps/search/?api=1&query=${coords[1]}${lon?','+lon[1]:''}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(title+' Maharashtra')}`;
+    const show=()=>openDialog(`${title} · ${node}`,`${details}\n\nSelect “Open in Maps” to view this site.\n\nNote: card values are illustrative unless marked as connected live API data.`,{href:maps,label:'Open in Maps'});
+    card.addEventListener('click',e=>{if(e.target.closest('a,button'))return;show();});
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show();}});
+    const hint=document.createElement('div'); hint.className='text-xs text-primary-fixed mt-3 font-semibold'; hint.textContent='VIEW LOCATION DETAILS ↗';
+    const inner=card.querySelector('.p-5'); if(inner) inner.append(hint);
+  });
+  // Header controls now have meaningful actions.
+  const sensorBtn=$('button[title="Sensors Overview"]');
+  sensorBtn?.addEventListener('click',()=>document.querySelector('#monitor')?.scrollIntoView({behavior:'smooth'}));
+  const tuneBtn=$('button[title="Telemetry Tuning"]');
+  tuneBtn?.addEventListener('click',()=>openDialog('Telemetry settings','Environmental API refresh interval: 10 minutes.\nSource: Open-Meteo weather and air-quality APIs.\nWater chemistry and salinity values require physical sensor hardware and are not live-connected.\nUse the Refresh now control in Live Monitoring to request fresh readings.'));
+  // Report carousel arrows work on both desktop and mobile.
+  const reportTrack=$('#reports .grid.grid-cols-1.md\\:grid-cols-3');
+  if(reportTrack){reportTrack.classList.add('advisory-track');}
+  const reportButtons=$$('#reports button[title="Scroll Left"], #reports button[title="Scroll Right"]');
+  reportButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    if(!reportTrack)return;
+    const direction=btn.title==='Scroll Left'?-1:1;
+    reportTrack.scrollBy({left:direction*Math.max(280,reportTrack.clientWidth*.8),behavior:'smooth'});
+  }));
+  // Ensure navigation links always close the mobile menu and smoothly move to valid sections.
+  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const target=$(a.getAttribute('href'));
+    if(!target)return;
+    e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'});
+    history.replaceState(null,'',a.getAttribute('href'));
+    const menu=$('#mobileMenu'), toggle=$('#mobileMenuToggle');
+    if(menu){menu.classList.remove('open');toggle?.setAttribute('aria-expanded','false');}
+  }));
+  // Give the location cards a clear visual affordance and avoid clicks being swallowed by overlays.
+  $$('#locations .location-card img').forEach(img=>img.style.pointerEvents='none');
+})();
+</script>
+
+</body></html>

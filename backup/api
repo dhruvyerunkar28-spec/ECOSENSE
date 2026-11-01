@@ -1,0 +1,1 @@
+https://api.open-meteo.com/v1/forecast?latitude=19.3&longitude=72.8&hourly=temperature_2m,surface_pressure,apparent_temperature,wind_speed_120m,soil_temperature_18cm,rain,evapotranspiration,temperature_120m&timezone=auto

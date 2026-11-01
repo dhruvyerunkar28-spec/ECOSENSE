@@ -1,0 +1,114 @@
+{
+  "locations": [
+    {
+      "id": "suruchi",
+      "name": "Suruchi Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.3441,
+      "lon": 72.7883,
+      "image": null,
+      "description": "Popular, wide beach flanked by casuarina trees and local food shacks.",
+      "verified": true
+    },
+    {
+      "id": "bhuigaon",
+      "name": "Bhuigaon Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.3650,
+      "lon": 72.7800,
+      "image": null,
+      "description": "Quiet black‑sand beach favored by photographers and pre‑wedding shoots.",
+      "verified": true
+    },
+    {
+      "id": "rangaon",
+      "name": "Rangaon Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.3820,
+      "lon": 72.7710,
+      "image": "images/rangaon.jpg",
+      "description": "Intertidal sands with fishing dhows and a continuous salinity probe.",
+      "verified": true
+    },
+    {
+      "id": "kalamb",
+      "name": "Kalamb Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.4034,
+      "lon": 72.7614,
+      "image": null,
+      "description": "Rustic, less‑crowded beach with local horse‑cart rides.",
+      "verified": true
+    },
+    {
+      "id": "rajodi",
+      "name": "Rajodi Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.4210,
+      "lon": 72.7520,
+      "image": null,
+      "description": "Family‑friendly beach with water‑sport facilities and weekend crowds.",
+      "verified": true
+    },
+    {
+      "id": "arnala",
+      "name": "Arnala Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.4650,
+      "lon": 72.7380,
+      "image": null,
+      "description": "Coastal stretch near historic Arnala Fort, known for black sand and coconut groves.",
+      "verified": true
+    },
+    {
+      "id": "vasai-creek",
+      "name": "Vasai Creek",
+      "area": "Vasai",
+      "category": "Creek",
+      "lat": 19.3900,
+      "lon": 72.8250,
+      "image": null,
+      "description": "Tidal creek linking the estuary to the sea, used for small‑boat navigation.",
+      "verified": true
+    },
+    {
+      "id": "vaitarna-creek",
+      "name": "Vaitarna Creek",
+      "area": "Vasai",
+      "category": "Creek",
+      "lat": 19.3805,
+      "lon": 72.8102,
+      "image": null,
+      "description": "Important freshwater inlet feeding the coastal wetlands.",
+      "verified": true
+    },
+    {
+      "id": "vasai-beach",
+      "name": "Vasai Beach",
+      "area": "Vasai",
+      "category": "Beach",
+      "lat": 19.3919,
+      "lon": 72.8397,
+      "image": null,
+      "description": "Central beach of Vasai with a mix of locals and tourists.",
+      "verified": true
+    },
+    {
+      "id": "naigaon-estuary",
+      "name": "Naigaon Estuary",
+      "area": "Naigaon",
+      "category": "Mangrove",
+      "lat": 19.3498,
+      "lon": 72.8925,
+      "image": "images/naigaon.jpg",
+      "description": "Dense mangrove creek estuary with brackish tidal channels.",
+      "verified": true
+    }
+  ]
+}
